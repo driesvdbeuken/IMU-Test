@@ -1,5 +1,3 @@
-#define F_CPU 2000000UL
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "TWI/twi.h"
@@ -9,6 +7,7 @@
 
 #define TWI_ADRESS 0b1101011   // The adress of the I2C device
 
+#define F_CPU 2000000UL
 
 int main(void){
 
@@ -37,7 +36,7 @@ int main(void){
   int16_t result_x;
   int16_t result_y;
 
-  uint8_t write = 0x0A << 4;
+  uint8_t write = 0x05 << 4;
   write_8bit_register_TWI(&TWIE, TWI_ADRESS, write, CTRL1_XL);
 
   while(1){
